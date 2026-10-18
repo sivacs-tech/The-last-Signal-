@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', Georgia, Cambria, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #090B0A;
+    color: #E2DFD7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, .font-editorial {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  code, pre, .font-terminal {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Subtle CRT scanline texture - completely non-intrusive and static */
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.24) 50%,
+    rgba(0, 0, 0, 0.24)
+  );
+  background-size: 100% 4px;
+}
+
+/* Archival warm paper surface for physical documents */
+.archival-paper {
+  background-color: #EAE4D7;
+  color: #1C1A17;
+  background-image: radial-gradient(rgba(28, 26, 23, 0.04) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* Restrained interference transition */
+@keyframes signal-shift {
+  0% { opacity: 0.85; transform: translateX(0); }
+  25% { opacity: 0.92; transform: translateX(-1px); }
+  50% { opacity: 0.80; transform: translateX(1px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.signal-interference {
+  animation: signal-shift 180ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .signal-interference {
+    animation: none !important;
+  }
+}
+

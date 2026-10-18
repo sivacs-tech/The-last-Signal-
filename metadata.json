@@ -1,0 +1,6 @@
+{
+  "name": "The Last Signal",
+  "description": "An interactive archival mystery where you investigate a mysterious transmission from Outpost Vesper-9, decode encrypted signals, reconstruct the timeline, and determine the station's fate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
